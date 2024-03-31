@@ -1,0 +1,22 @@
+{
+    "icons": [{
+      "src": "images/splash.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+    "yandex": {
+      "splash_screen_color": "#000000",
+      "cache": {
+        "resources": [
+          "styles/style.css",
+          "scripts/sound.js",
+          "scripts/code.js",
+          "audios/background.mp3",
+          "audios/pop.mp3",
+          "audios/dont_pop.mp3",
+          "audios/button_click.mp3",
+          "images/sprites.png"
+        ]
+      }
+    }
+  }

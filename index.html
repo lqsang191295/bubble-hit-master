@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!-- <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes"> -->
+        <link rel="manifest" href="manifest.json">
+        <title>Bubble Fruit Master</title>
+        <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+        <link href="styles/style.css" rel="stylesheet">
+        <script type="text/javascript" src="scripts/sound.js"></script>
+        <script type="text/javascript" src="scripts/particles.js"></script>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-78YTZGGJC2"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-78YTZGGJC2');
+        </script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="header-box">
+                <div class="button" id="leaderboard-button">
+                    <img id="ldb-icon" src="./images/icons/leaderboard.png" />
+                </div>
+                <div id="left-box"> 
+                    <div id="best-score-text">
+                        Best
+                    </div>
+                    <div id="best-score-box">
+                        <span id="text-best-score">0</span>
+                    </div>
+                </div>
+                <div id="score-box">
+                    <div id="score-text">
+                        Score
+                    </div>
+                    <div id="score-box">
+                        <span id="level-score">0</span>
+                    </div>
+                </div>
+                <div title="Mute" class="button" id="mute-button">
+                    <img id="sound-icon" src="./images/icons/sound-on.png" />
+                </div>
+                <!-- <div id="action-box">
+                    
+                </div> -->
+            </div>
+        </div>
+        <div id="danger-line" style="position: absolute; top: -10px; background-image: url(./images/thorn-bushes.png); height: 2.4vh; background-size: contain; background-position: center;"></div>
+
+        <canvas id="viewport"></canvas>
+        <div id="dashboard-modal">
+            <div id="logo" class="title-shaking">
+                <img src="./images/logo.png" />
+            </div>
+            <div id="action-text">
+                <div id="action-text-icon">
+                    <img src="./images/icons/play.png" />
+                </div>
+            </div>
+            <div id="start-text">
+                <span id="start"></span>
+                <!-- <span>
+                    <p id="score-text">СЧЁТ:</p>
+                    <p id="score">0</p>
+                </span>
+                <span>
+                    <p id="best-text">ЛУЧШИЙ:</p>
+                    <p id="best">0</p>
+                </span> -->
+                <span id="touch"></span>
+            </div>
+            <div id="loader">
+                <div class="loading-spinner">
+                    <svg class="loading-spinner__circle-svg" viewBox="25 25 50 50">
+                    <circle class="loading-spinner__circle-stroke" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div id="popup-ad" style="display:none;">
+            <div title="Close" id="close-ad-button"><i class="material-icons"></i></div>
+            <p id="popup-text"></p>
+            <p id="popup-action">
+                <i class="material-icons">movie</i>
+                <span>СМОТРЕТЬ</span>
+            </p>
+        </div>
+        <div id="popup-rescue" style="display:none;">
+            <!-- <div title="Close" id="close-rescue-button"><i class="material-icons"></i></div> -->
+            <div class="popup-rescue-content">
+                <div class="content">
+                    <p id="popup-text-rescue"></p>
+                </div>
+                <div class="buttons">
+                    <p id="popup-action-continue">
+                        <i class="material-icons">movie</i>
+                        <span>CONTINUE</span>
+                    </p>
+                    <br>
+                    <p id="popup-action-cancel">
+                        <span>CANCEL</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="popup-game-over" style="display:none;">
+            <div class="game-over-content">
+                <p id="popup-text-game-over"></p>
+                <br>
+                <div class="content-game-over">
+                    <span>
+                        <p id="score-text">СЧЁТ:</p>
+                        <p id="score">0</p>
+                    </span>
+                    <span>
+                        <p id="best-text">ЛУЧШИЙ:</p>
+                        <p id="best">0</p>
+                    </span>
+                </div>
+                <div class="buttons">
+                    <p id="popup-action-replay"></p>
+                </div>
+            </div>
+        </div>
+        <div id="popup-leaderboard" style="display:none;">
+            <div class="leaderboard-content">
+                <div title="Close" id="close-leaderboard-button"><i class="material-icons"></i></div>
+                <p id="popup-text-leaderboard"></p>
+                <div id="table-container">
+                    <div id="table-box-loader">
+                        <div id="loader">
+                            <div class="loading-spinner">
+                                <svg class="loading-spinner__circle-svg" viewBox="25 25 50 50">
+                                <circle class="loading-spinner__circle-stroke" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="table-box-no-data">
+                        <p id="empty-text">LeaderBoard is empty!</p>
+                    </div>
+                    <table id="leaderboard">
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="window-adv-ad" style="display:none;">
+            <p id="window-adv-icon"><i class="material-icons">favorite</i></p>
+            <p id="window-adv-text">Реклама помогает существовать нашей команде! Спасибо!</p>
+        </div>
+        <div id="fps" style="position: absolute; left: 0; top: 0; display: none;"></div>
+        <script type="text/javascript" src="scripts/score.js"></script>
+        <script type="text/javascript" src="scripts/code.js"></script>
+        <script>
+            (function(d) {
+                var t = d.getElementsByTagName('script')[0];
+                var s = d.createElement('script');
+                s.src = 'https://lagged.com/api/rev-share/lagged.js';
+                s.async = true;
+                t.parentNode.insertBefore(s, t);
+                // s.onload = initSDK;
+            })(document);
+        </script>
+    </body>
+</html> 
