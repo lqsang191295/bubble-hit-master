@@ -3,4 +3,4 @@
 1. Run `http-server -c-1` to run app
 2. Run localhost:3000
 
-Preview game: <a href="/">Bubble Hit Master</a>
+Preview game: <a href="https://coolxgame.com/en/game/bubble-hit-master">Bubble Hit Master</a>
