@@ -7,4 +7,4 @@ Game Bubble Hit Master
 
 #Javascript #Html #Css
 
-Preview game: <a href="https://coolxgame.com/en/game/bubble-hit-master">Bubble Hit Master</a>
+Preview game: <a href="https://coolxgame.com/game/bubble-hit-master">Bubble Hit Master</a>
